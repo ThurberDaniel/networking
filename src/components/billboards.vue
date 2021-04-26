@@ -4,8 +4,13 @@
 </template>
 
 <script>
+import { billboardsService } from '../services/BillboardsService'
+import { AppState } from '../AppState'
+import Notification from '../utils/Notification'
+import { computed, onMounted } from 'vue'
+
 export default {
-  name: 'AdvComponent',
+  name: 'Billboards',
   props: {
     project: {
       type: Object,

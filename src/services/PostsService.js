@@ -9,8 +9,8 @@ class PostsService {
   }
 
   async getActive(id) {
-    const res = await api.get('api/posts/' + id)
-    AppState.activePost = res.data
+    const res = await api.get('api/profile/' + id)
+    AppState.showAllOne = res.data
   }
 
   //   async getMyProjects() {

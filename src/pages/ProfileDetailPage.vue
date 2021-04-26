@@ -1,8 +1,5 @@
 <template>
-  <div>
-    {{ state.posty.name }}
-    <p>Hello</p>
-  </div>
+  <h1>{{ state.posty.creator.name }}</h1>
 </template>
 
 <script>
@@ -17,7 +14,9 @@ export default {
   setup() {
     const route = useRoute()
     const state = reactive({
-      posty: computed(() => AppState.activePost)
+      posty: computed(() => AppState.activePost),
+      user: computed(() => AppState.user),
+      account: computed(() => AppState.account)
 
     })
 

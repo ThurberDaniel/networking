@@ -2,7 +2,8 @@
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="row">
     </div>
-    <PostsComponent v-for="posty in state.showAll" :key="posty.id" :post-val="posty" />
+    <PostsComponent v-for="posty in state.showAll" :key="posty.creatorId" :post-val="posty" />
+    <ProfileAllComponent v-for="oneProfileAll in state.oneShowAll" :key="oneProfileAll.id" :all-val="oneProfileAll" />
   </div>
 </template>
 
@@ -16,7 +17,8 @@ export default {
   name: 'Home',
   setup() {
     const state = reactive({
-      showAll: computed(() => AppState.showAllPosts)
+      showAll: computed(() => AppState.showAllPosts),
+      oneShowAll: computed(() => AppState.showAllOne)
     })
     onMounted(async() => {
       try {
