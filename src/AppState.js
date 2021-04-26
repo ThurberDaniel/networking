@@ -1,4 +1,3 @@
-import { NULL } from 'node-sass'
 import { reactive } from 'vue'
 
 // NOTE AppState is a reactive object to contain app level data
@@ -12,7 +11,7 @@ export const AppState = reactive({
   showAllPosts: [],
   activePost: [],
   showAllOne: [],
-  activeProfile: NULL,
+  activeProfile: null,
   billboards: []
 
 })
