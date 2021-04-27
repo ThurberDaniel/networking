@@ -5,11 +5,14 @@ you can prevent this with a v-if -->
     <h1 class="text-danger">
       {{ state.activeProfile.name }}'s Networking Page
     </h1>
-    <!-- FIXME add a profile header here with the edit button v-if="state.account.id == state.activeProfile.id" -->
-    <!-- FIXME add a form here with the create post options adding v-if="state.account.id == state.activeProfile.id" -->
-    <!-- Re use the v-for post in posts with a posts component -->
 
     <div class="card m-3 p-3 shadow" style="width:450px ">
+      <button v-if="state.account.id && isAuthentic == state.activeProfile.id">
+        Edit
+      </button>
+      <button v-if="state.account.id && isAuthentic == state.activeProfile.id">
+        Delete
+      </button>
       <img class="card-img-top" :src="state.activeProfile.picture" alt="Card image">
       <div class="card-img-overlay">
         <h4 class="card-title">
@@ -48,7 +51,6 @@ export default {
     onMounted(async() => {
       try {
         await accountService.getProfile(route.params.id)
-
         // FIXME Get the profile's posts from the post api ('api/profile/:id/posts')
       } catch (error) {
         Notification.toast('Error: ' + error, 'error')

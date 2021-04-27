@@ -5,7 +5,6 @@
         Delete
       </button>
       <router-link :to="{name: 'ProfileDetailPage', params: {id: postVal.creatorId}}">
-        <!-- FIXME add a delete button v-if="state.account.id == postVal.creatorId" -->
         <h5 class="card-title">
           {{ postVal.creator.name }}
         </h5>
