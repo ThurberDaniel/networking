@@ -2,7 +2,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <h2>Networking</h2>
+        <h3 class="text-primary">
+          NETWORKING
+        </h3>
       </div>
     </router-link>
     <button
@@ -82,7 +84,22 @@
         </div>
       </span>
     </div>
+    <div>
+    </div>
   </nav>
+  <div class="bg-success col-4 d-flex" style="height: 10rem">
+    <div v-if="state.user">
+      <img :src="state.user.picture">
+    </div>
+    <div v-else>
+      <p>No-Active User - Please Log In</p>
+    </div>
+    <div class="bg-success col-6 justify-content-end">
+      <p>NAME:{{ state.user.name }} </p>
+      <p>EMAIL:{{ state.user.email }}</p>
+      <p>Currently Logged In:<b>{{ state.user.isAuthenticated }}<b></b></b></p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -93,7 +110,9 @@ export default {
   name: 'Navbar',
   setup() {
     const state = reactive({
-      dropOpen: false
+      dropOpen: false,
+      user: computed(() => AppState.user)
+
     })
     return {
       state,
@@ -110,6 +129,7 @@ export default {
 </script>
 
 <style scoped>
+
 .dropdown-menu {
   user-select: none;
   display: block;

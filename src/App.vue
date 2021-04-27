@@ -6,6 +6,9 @@
     <router-view />
   </main>
   <footer>
+    <div>
+      <Billboards />
+    </div>
     <div class="bg-warning text-light text-center p-4">
       Made with Power by DANIEL
     </div>
@@ -19,7 +22,8 @@ export default {
   name: 'App',
   setup() {
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      billboards: computed(() => AppState.billboards)
     }
   }
 }
